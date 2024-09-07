@@ -1,0 +1,59 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+    height: 911px;
+    background-color: #1b1b1b;
+    font-family: "Raleway", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    font-style: normal;
+    transition: background-image 0.5s ease;
+}
+
+.menu.hover-bg {
+    background-image: url('D:/ECOSYNC/Frontend/src/assets/drought.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.menu-body {
+    width: 92%;
+    border-right: 1px solid white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.element {
+    display: flex;
+    flex-direction: row;
+}
+
+.hollow {
+    padding: 20px;
+    font-family: 'Raleway', sans-serif;
+    font-size: 80px;
+    transform: scaleY(3);
+    color: transparent; /* Transparent inside */
+    -webkit-text-stroke: 1px #ffffff80; /* Hollow effect */
+    transition: color 0.5s ease, -webkit-text-stroke 0.5s ease;
+}
+
+.hollow:hover {
+    color: whitesmoke; /* Fills text with white on hover */
+    -webkit-text-stroke: 0px; /* Removes stroke on hover */
+}

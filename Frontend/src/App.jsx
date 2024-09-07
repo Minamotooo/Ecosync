@@ -1,11 +1,13 @@
-import Map from './components/Map'
+import Menu from './components/Menu'
+import CesiumMap from './components/CesiumMap'
 import './App.css'
 
 function App() {
 
   return (
     <>
-      <Map />
+      <CesiumMap />
+      {/* <Menu /> */}
     </>
   )
 }
