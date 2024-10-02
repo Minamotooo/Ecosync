@@ -1,0 +1,43 @@
+.feature-container {
+    display: flex;            
+    justify-content: space-between; 
+    align-items: flex-start; 
+    flex-wrap: wrap;                      
+    margin-left: 80px;
+      
+}
+
+
+.feature-text {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-style: normal; 
+    font-size: 36px;
+    /*text-align: center;  Center align text */
+    width: 100%; /* Ensures it takes full width */
+    text-align: center;
+    color: #0e86d4;
+ /* Same margin-left as .feature-para to align horizontally */
+}
+
+.main {
+    padding-top: 100px;
+    position: relative;
+    width: 100vw;
+    min-height: 100vh; /* Full viewport height */
+    /* Prevents the background from repeating */
+    color: white; /* Adjust text color if necessary to make it readable over the image */
+}
+
+
+.feature-para {
+    font-family: "Barlow", sans-serif;
+    font-weight: 700;
+    font-style: normal; 
+    font-size: 48px;
+    /*text-align: center;  Center align text */
+    width: 100%; /* Ensures it takes full width */
+    margin-left: 300px;
+    color: #EFF2F5;
+    line-height: 1.1; /* Adjust this value to control the spacing */
+}

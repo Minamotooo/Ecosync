@@ -1,0 +1,59 @@
+/* Navbar.css */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.navbar {
+  width: 80px;
+  height: 100vh;
+  background-color: #f0f0f0;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.navbar ul li {
+  width: 100%;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.navbar ul li a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #333;
+  position: relative;
+  padding: 10px 0;
+}
+
+.navbar ul li a:hover {
+  background-color: #e0e0e0;
+}
+
+.navbar .icon {
+  font-size: 24px;
+}
+
+.navbar .text {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+
+.icon {
+  width: 30px;
+}

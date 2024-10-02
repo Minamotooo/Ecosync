@@ -17,7 +17,8 @@ export default function Menu() {
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                         >
-                            DROUGHT
+                            
+                            SEA LEVEL
                         </h3>
                     </div>
                     <div className="element">
@@ -27,14 +28,49 @@ export default function Menu() {
                             onMouseEnter={() => setIsHovered(true)}
                             onMouseLeave={() => setIsHovered(false)}
                         >
-                            SEA LEVEL
+                            WILDFIRE
                         </h3>
                     </div>
                 </div>
-                <div><span></span></div>
-                <div><span></span></div>
+                <div className="title">
+                    <div className="element">
+                        <span>3.</span>
+                        <h3 
+                            className="hollow"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
+                            DROUGHT
+                        </h3>
+                    </div>
+                    <div className="element">
+                        <span>4.</span>
+                        <h3 
+                            className='hollow'
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
+                            BIODIVERSITY
+                        </h3>
+                    </div>
+                </div>
+                <div className="title center">
+                    <div className="element">
+                        <span>5.</span>
+                        <h3 
+                            className="hollow"
+                            onMouseEnter={() => setIsHovered(true)}
+                            onMouseLeave={() => setIsHovered(false)}
+                        >
+                           GLOBAL WARMING
+                        </h3>
+                    </div>
+                </div>
             </div>
-            <div className="menu-banner">Banner</div>
+            <div className="menu-banner">
+                <div className="team">BUET ASTRONOVA</div>
+                <div className="project">Ecosync</div>
+            </div>
         </div>
     );
 }

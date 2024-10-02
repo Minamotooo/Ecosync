@@ -1,0 +1,94 @@
+
+
+.logooo {
+ width: 250px;
+ text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.2); /* Enhance the glow with cyan */
+ padding-top: 6px;
+}
+
+
+
+.nav-content {
+ display: flex;
+ align-items: center;
+ margin: 0 auto;
+ color: var(--Grey-1, #808080);
+ font-size: 15px;
+ font-style: normal;
+ font-weight: 400;
+ line-height: normal;
+
+}
+.nav-content > span {
+ padding:10px;
+}
+.selected {
+ color: var(--Black, #000000);
+ font-weight: 500;
+}
+
+
+.navbar--container {
+  padding: 0px 50px;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0px 12px 40px 0px rgba(0, 0, 0, 0.04);
+  background-color: rgba(20, 26, 34,0); /* Navbar background color */
+  position: absolute; /* Fixed position */
+  top: 0; /* Fixed at the top */
+  width: 100%; /* Full width */
+  z-index: 1000; /* Ensure it's on top of other elements */
+}
+.nav--Menu {
+ display: inline-flex;
+align-items: center;
+gap: 10px;
+}
+
+
+
+/* Navbar.module.css */
+.navItem {
+position: relative;
+margin: 0 12px;
+padding: 0 4px; /* Adjust padding as needed */
+text-decoration: none;
+color: white;
+font-size: 17px;
+font-weight: 400;
+line-height: normal;
+transition: color 0.2s;
+display: inline-block; /* Needed for the positioning of the pseudo-element */
+letter-spacing: 1px;
+text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.7);
+}
+
+.navItem::after {
+ content: '';
+ position: absolute;
+ height: 2px;
+ bottom: -5px; /* Adjust as needed for the distance from the text */
+ left: 50%;
+ transform: translateX(-50%); /* Centers the line */
+ background-color: #0077b6;
+ transition: width 0.3s ease-in-out, transform 0.3s ease-in-out; /* transition on transform for smoother effect */
+ max-width: 70%; /* Adjust this value for your preferred underline length */
+}
+
+
+
+
+.navItem:hover,
+.navItem.active {
+    color: white;
+    background-color: #0077b6;
+    padding: 18px 10px; /* Adjusted for consistency */
+    margin-top: 0px;
+    
+    /* Create the parabolic shape effect */
+    border-radius: 0px 0px 20px 20px; /* More rounded at the bottom */
+    transition: all 0.3s ease-in-out; /* Smooth transition for the hover effect */
+    transform: scale(1.1); /* Slightly scale the button on hover */
+}

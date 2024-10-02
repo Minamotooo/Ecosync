@@ -1,0 +1,34 @@
+*{
+    margin: 0px;
+}
+.hero-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    overflow: hidden; /* Hide any overflow */
+}
+
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto; 
+    height: auto; /* Adjust opacity as needed for the desired effect */
+    transform: translate(-50%, -50%); /* Center the video */
+    z-index: -1;
+    background-color: blue; /* Send the video behind other content */
+}
+
+.hero-content {
+    position: relative; /* Allow content to appear above the video */
+    z-index: 1; /* Ensure the content appears above the video */
+    color: white; /* Adjust text color for visibility */
+}
+
+
+.hero {
+    height: 950px;
+    background-color: #082a64;
+}

@@ -1,0 +1,67 @@
+/* Sidebar container */
+.sidebar {
+    position: absolute;
+    top: 200px;
+    left: 20px;
+    background-color: rgba(20, 26, 34,.725); /* Dark background */
+    padding: 10px 20px;
+    border-radius: 12px;
+    width: 220px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4); /* Soft shadow */
+    z-index: 1000;
+}
+
+/* Each button style */
+.sidebar-btn {
+    display: flex;
+    align-items: center;
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    padding: 14px;
+    margin-bottom: 12px;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border-radius: 8px;
+}
+
+.sidebar-btn:hover {
+    background-color: #2b2f41;
+    transform: scale(1.05);
+}
+
+.sidebar-btn:active {
+    transform: scale(1.02);
+}
+
+/* Active (selected) button style */
+.sidebar-btn.active {
+    background-color: #4f556e;
+    border-radius: 8px;
+}
+
+/* Icon styling */
+.sidebar-btn .icon {
+    width: 28px;
+    height: 28px;
+    margin-right: 18px;
+}
+
+/* Custom padding for Animation button */
+.sidebar-btn.animation {
+    padding-left: 40px;
+}
+
+.pad {
+    padding-left: 60px;
+}
+
+.heading {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    margin-bottom: 20px;
+}

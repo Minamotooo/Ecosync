@@ -1,0 +1,85 @@
+.earth {
+    /* Use a relative path */
+    height: 100vh; /* Set a height to show the background */
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center elements vertically */
+    align-items: center; /* Center elements horizontally */
+    text-align: center; /* Align text to the center */
+    position: relative; /* Set position relative to enable absolute positioning of children */
+}
+
+.hero-img {
+    width: 1300px;
+    padding-bottom: 0px;
+    margin-top: 0px;
+    margin-bottom: 120px;
+    text-shadow: 1px 1px 6px rgba(161, 16, 16, 1);
+
+}
+
+.hero-subtitle {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    font-weight: 500;
+    text-align: center;
+    position: absolute; /* Position it absolutely within the .earth container */
+    top: calc(50% + 50px); /* Adjust position to be 20px down from the center */
+    left: 50%; /* Position it in the center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to perfectly center the text */
+    z-index: 2; /* Ensure it overlaps the image */
+    text-shadow: 1px 1px 6px rgba(255, 255, 255, 0.2); /* Soft shadow to make it pop */
+}
+.get-started-btn {
+    position: relative;
+    padding: 0.6rem 1.6rem;
+    background-color: transparent;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    position: absolute; /* Position it absolutely within the .earth container */
+    top: calc(50% + 160px); /* Adjust position to be 20px down from the center */
+    left: 50%; /* Position it in the center horizontally */
+    transform: translate(-50%, -50%); /* Adjust to perfectly center the text */
+    z-index: 2;
+    transition: color 0.4s ease-in-out, background-color 0.4s ease-in-out;
+}
+
+.get-started-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    z-index: -1; /* This stays behind the button text */
+    transition: width 0.4s ease-in-out;
+}
+
+.get-started-btn:hover::before {
+    width: 100%;
+}
+
+.get-started-btn:hover {
+    color: #000;
+    background-color: #fff; /* Add this to ensure the button is filled on hover */
+}
+
+.background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+}

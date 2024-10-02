@@ -1,0 +1,97 @@
+
+/* HeroSection.css */
+.hero-container {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: "Tektur", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    z-index: 1;
+
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+    filter: brightness(50%);
+  }
+  
+  .hero-content {
+    color: #fff;
+    text-align: center;
+    z-index: 1;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .hero-title {
+    font-size: 10rem;
+    font-weight: medium;
+    margin-bottom: 1rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+  }
+  
+  .hero-subtitle {
+    padding-left: auto;
+    padding-right: auto;
+    align-items: center;
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    width:700px;
+  }
+  
+  .get-started-btn {
+    position: relative;
+    padding: 0.8rem 2rem;
+    background-color: transparent;
+    color: #fff;
+    border: 2px solid #fff;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1;
+    transition: color 0.4s ease-in-out;
+  }
+  
+  .get-started-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: #fff;
+    z-index: -1;
+    transition: width 0.4s ease-in-out;
+  }
+  
+  .get-started-btn:hover::before {
+    width: 100%;
+  }
+  
+  .get-started-btn:hover {
+    color: #000;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  

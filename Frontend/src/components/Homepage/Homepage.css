@@ -1,0 +1,15 @@
+.background {
+     /* Fallback color */
+    width: 100vw;
+ /* Optional: to position child elements absolutely if needed */
+}
+
+.bg {
+   background-image: url('D:/ECOSYNC/Frontend/src/assets/back1.jpg'); /* Replace with your actual image path */
+   background-size: cover;   /* Ensures the image covers the entire container */
+   background-position: center; /* Centers the image */
+   background-repeat: no-repeat; /* Prevents the image from repeating */
+    /* Keeps the background in place when scrolling (optional) */
+   width: 100%;  /* Ensures full width */
+    /* Full height (adjust as necessary) */
+}
