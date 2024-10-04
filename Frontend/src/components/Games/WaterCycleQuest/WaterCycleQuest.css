@@ -1,4 +1,4 @@
-/* src/components/WaterCycleQuest/WaterCycleQuest.css */
+/* src/components/WaterCycleQuest/WaterCycleQuest.css
 
 .water-cycle-quest-container {
     position: relative;
@@ -36,4 +36,24 @@
     padding: 5px 15px;
     cursor: pointer;
   }
-  
+   */
+
+/* WaterCycleQuest.css */
+
+.water-cycle-quest-container {
+  position: relative;
+  width: 800px;
+  margin: 0 auto;
+  border: 2px solid red;
+}
+
+.game-wrapper {
+  position: relative;
+  width: 800px;
+  height: 600px;
+}
+.water-cycle-quest {
+  width: 800px;
+  height: 600px;
+  margin: 0 auto;
+}

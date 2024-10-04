@@ -2,10 +2,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Phaser from "phaser";
-import "./ClimateCascade.css";
+import "./DeforestationDefender.css";
 import Loading from "../Loading/Loading";
 
-const ClimateCascade = () => {
+const DeforestationDefender = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -23,17 +23,15 @@ const ClimateCascade = () => {
   useEffect(() => {
     // 1. Define constants and variables accessible throughout the useEffect
     const groundHeight = 64; // Height of the ground
+    const groundY = 600; // Y-position for the ground
     let player;
     let cursors;
     let spacebar; // Reference for the Space Bar key
+    let pKey; // Reference for the 'P' key
     let currentLevel = 0; // Start from 0 for swamp
-    const maxLevels = 2; // 0: Swamp, 1: Desert, 2: Polar
-    const backgrounds = [
-      "swampBackground",
-      "desertBackground",
-      "polarBackground",
-    ];
-    const groundTextures = ["platform1", "platform2", "platform3"]; // Ground textures
+    const maxLevels = 0; // Only one level now
+    const backgrounds = ["swampBackground"];
+    const groundTextures = ["platform1"]; // Ground textures
     let backgroundImage; // Reference to the current background
     let ground; // Reference to the ground
     let floatingPlatformsGroup; // Group for floating platforms
@@ -48,23 +46,13 @@ const ClimateCascade = () => {
     // Level configuration for labels and scoring
     const levelConfig = {
       0: {
-        label: "Biodiversity",
+        label: "Ecological Balance",
         maxScore: 100,
         scoreIncrement: 10, // per tree collected
       },
-      1: {
-        label: "Soil Water Level",
-        maxScore: 100,
-        scoreIncrement: 10,
-      },
-      2: {
-        label: "Sea Level",
-        maxScore: 100,
-        scoreIncrement: 10, // Collecting trees decreases the score
-      },
     };
 
-    // Define floating platform data for each level
+    // Define floating platform data for the level
     const floatingPlatformData = {
       0: {
         // Swamp Level
@@ -80,41 +68,11 @@ const ClimateCascade = () => {
           { x: 650, y: 370, width: 200 },
         ],
       },
-      1: {
-        // Desert Level
-        texture: "floatingPlatform2",
-        platforms: [
-          { x: 600, y: 470, width: 120 },
-          { x: 300, y: 100, width: 300 },
-          { x: 500, y: 320, width: 300 },
-          { x: 400, y: 420, width: 200 },
-          { x: 225, y: 370, width: 100 },
-          { x: 300, y: 245, width: 150 },
-          { x: 110, y: 195, width: 200 },
-          { x: 600, y: 170, width: 375 },
-        ],
-      },
-      2: {
-        // Polar Level
-        texture: "floatingPlatform3",
-        platforms: [
-          { x: 220, y: 95, width: 320 },
-          { x: 420, y: 170, width: 420 },
-          { x: 245, y: 320, width: 220 },
-          { x: 670, y: 120, width: 170 },
-          { x: 220, y: 470, width: 220 },
-          { x: 620, y: 420, width: 220 },
-          { x: 420, y: 395, width: 170 },
-          { x: 120, y: 245, width: 170 },
-        ],
-      },
     };
 
     // Dummy data for educational pop-ups
     const dataInfo = {
-      0: "Welcome to the Swamp! Navigate and understand the impact of planting trees on biodiversity. See if you can catch the satellite image of your current area too!!",
-      1: "Welcome to the Desert! Navigate and understand the impact of planting trees on soil water level. See if you can catch the satellite image of your current area too!!",
-      2: "Welcome to the Polar Region! Navigate and understand the impact of planting trees on sea level. See if you can catch the satellite image of your current area too!!",
+      0: "Welcome to the Forest! Understand the effects of planting trees!!",
     };
 
     // 2. Phaser Game Configuration
@@ -142,41 +100,45 @@ const ClimateCascade = () => {
 
     // 3. Preload assets
     function preload() {
-      this.load.image("swampBackground", "/Games/ClimateCascade/assets/swamp.jpg");
-      this.load.image("desertBackground", "/Games/ClimateCascade/assets/desert.jpg");
-      this.load.image("polarBackground", "/Games/ClimateCascade/assets/polar.jpg");
+      this.load.image(
+        "swampBackground",
+        "/Games/DeforestationDefender/assets/background.png"
+      );
 
-      // Load all ground textures
-      this.load.image("platform1", "/Games/ClimateCascade/assets/platform/1.png");
-      this.load.image("platform2", "/Games/ClimateCascade/assets/platform/6.png"); // Ground texture for level 2
-      this.load.image("platform3", "/Games/ClimateCascade/assets/platform/5.png"); // Ground texture for level 3
+      // Load ground texture
+      this.load.image(
+        "platform1",
+        "/Games/DeforestationDefender/assets/platform.png"
+      );
 
-      // Load the floating platform images for different levels
+      // Load the floating platform image for the level
       this.load.image(
         "floatingPlatform1",
-        "/Games/ClimateCascade/assets/platform/2.png"
-      ); // Level 0 floating platform
-      this.load.image(
-        "floatingPlatform2",
-        "/Games/ClimateCascade/assets/platform/6.png"
-      ); // Level 1 floating platform
-      this.load.image(
-        "floatingPlatform3",
-        "/Games/ClimateCascade/assets/platform/5.png"
-      ); // Level 2 floating platform
+        "/Games/DeforestationDefender/assets/floating_platform.png"
+      );
 
-      this.load.spritesheet("dude", "/Games/ClimateCascade/assets/dude.png", {
-        frameWidth: 32,
-        frameHeight: 48,
-      });
+      this.load.spritesheet(
+        "dude",
+        "/Games/DeforestationDefender/assets/dude.png",
+        {
+          frameWidth: 32,
+          frameHeight: 48,
+        }
+      );
 
       // Load tree images
       for (let i = 1; i <= 9; i++) {
-        this.load.image(`tree${i}`, `/Games/ClimateCascade/assets/trees/${i}.png`);
+        this.load.image(
+          `tree${i}`,
+          `/Games/DeforestationDefender/assets/trees/${i}.png`
+        );
       }
 
       // Load satellite image
-      this.load.image("satellite", "/Games/ClimateCascade/assets/satellite.png");
+      this.load.image(
+        "satellite",
+        "/Games/DeforestationDefender/assets/satellite.png"
+      );
     }
 
     // 4. Create game objects
@@ -184,10 +146,11 @@ const ClimateCascade = () => {
       // Store the scene reference
       sceneRef.current = this;
 
-      // Add the initial background
+      // Add the background
       backgroundImage = this.add
         .image(400, 300, backgrounds[currentLevel])
-        .setScrollFactor(0, 0);
+        .setScrollFactor(0, 0)
+        .setDisplaySize(800, 600);
 
       // Get level configuration
       const levelSettings = levelConfig[currentLevel];
@@ -208,13 +171,10 @@ const ClimateCascade = () => {
       progressBar.fillRect(16, 50, 0, 20); // Initially zero width
 
       // Set initial score and max score
-      score = currentLevel === 2 ? levelSettings.maxScore : 0;
+      score = 0;
       maxScore = levelSettings.maxScore;
 
-      // Define ground properties
-      const groundY = 600; // Y-position for the ground
-
-      // Set ground texture based on the current level
+      // Set ground texture
       const groundTexture = groundTextures[currentLevel] || "platform1"; // Fallback to 'platform1'
 
       // Add the ground as a static physics object using staticSprite
@@ -267,16 +227,17 @@ const ClimateCascade = () => {
       spacebar = this.input.keyboard.addKey(
         Phaser.Input.Keyboard.KeyCodes.SPACE
       );
+      pKey = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.P);
 
       // Enable collision between the player and the ground
       this.physics.add.collider(player, ground);
 
       // 5. Create groups
       floatingPlatformsGroup = this.physics.add.staticGroup();
-      treesGroup = this.physics.add.group();
+      treesGroup = this.physics.add.staticGroup(); // Changed to static group
       satellitesGroup = this.physics.add.group();
 
-      // 6. Add floating platforms, trees, and satellites
+      // 6. Add floating platforms and satellite
       addLevelObjects.call(this, currentLevel);
 
       // Enable collision between the player and floating platforms
@@ -308,7 +269,7 @@ const ClimateCascade = () => {
       this.physics.world.setBounds(0, 0, 800, 600);
     }
 
-    // Function to add level objects (platforms, trees, satellites)
+    // Function to add level objects (platforms and satellite)
     function addLevelObjects(level) {
       const levelData = floatingPlatformData[level];
       if (levelData && levelData.platforms && levelData.platforms.length > 0) {
@@ -325,43 +286,6 @@ const ClimateCascade = () => {
             .setDisplaySize(platform.width, 20)
             .setOrigin(0.5, 1);
           platformSprite.refreshBody();
-
-          // Decide how many trees to place on this platform
-          const numberOfTrees = Phaser.Math.Between(1, 3);
-
-          for (let i = 0; i < numberOfTrees; i++) {
-            const treeIndex = Phaser.Math.Between(1, 9);
-
-            // Calculate the left and right edges of the platform
-            const platformLeftX = platform.x - platform.width / 2 + 10; // Adding 10 to avoid edges
-            const platformRightX = platform.x + platform.width / 2 - 10;
-
-            // Randomly position the tree within the platform bounds
-            const treeX = Phaser.Math.Between(platformLeftX, platformRightX);
-
-            // Create tree sprite
-            const tree = treesGroup
-              .create(treeX, platform.y - 20, `tree${treeIndex}`)
-              .setOrigin(0.5, 1)
-              .setScale(0.1); // Keep the scale at 0.1
-
-            // Adjust the physics body size
-            tree.body.setSize(tree.displayWidth, tree.displayHeight);
-
-            // Set tree to be immovable and not affected by gravity
-            tree.body.setAllowGravity(false);
-            tree.body.setImmovable(true);
-
-            // Make the tree oscillate
-            this.tweens.add({
-              targets: tree,
-              y: tree.y - 10,
-              duration: 1000,
-              yoyo: true,
-              repeat: -1,
-              ease: "Sine.easeInOut",
-            });
-          }
 
           // Add satellite to the selected platform
           if (index === satellitePlatformIndex) {
@@ -414,13 +338,7 @@ const ClimateCascade = () => {
       const scoreIncrement = levelConfig[currentLevel].scoreIncrement;
 
       // Update the score
-      if (currentLevel === 2) {
-        // Decrease score in level 2
-        score -= scoreIncrement;
-      } else {
-        // Increase score in other levels
-        score += scoreIncrement;
-      }
+      score += scoreIncrement;
 
       // Ensure score stays within bounds
       if (score > maxScore) score = maxScore;
@@ -440,10 +358,6 @@ const ClimateCascade = () => {
 
       // Set color
       let barColor = 0x00ff00; // Green
-
-      if (currentLevel === 2) {
-        barColor = 0x0000ff; // Blue for Sea Level
-      }
 
       // Draw the progress bar
       progressBar.fillStyle(barColor, 1);
@@ -472,7 +386,7 @@ const ClimateCascade = () => {
         player.anims.play("right", true);
       } else {
         player.setVelocityX(0);
-        player.anims.play("turn");
+        player.setFrame(4);
       }
 
       // Allow jumping with Up Arrow or Space Bar
@@ -480,107 +394,31 @@ const ClimateCascade = () => {
         player.setVelocityY(-330);
       }
 
-      // Check if player crosses the right edge of the current level
-      const levelBoundary = 800;
-      if (player.x > levelBoundary - 50) {
-        switchToNextLevel.call(this);
-        player.x = 50;
-        player.y = ground.y - groundHeight - 24;
-      }
+      // Handle planting a tree when 'P' is pressed
+      if (pKey.isDown && player.body.touching.down && !pKey.pressed) {
+        pKey.pressed = true;
 
-      // Prevent player from going beyond the left of the first level
-      if (currentLevel === 0 && player.x < 0) {
-        player.setX(0);
-      }
-    }
+        // Plant a tree at ground level
+        const treeIndex = Phaser.Math.Between(1, 9);
+        const treeY = groundY - groundHeight; // Position at the ground level
+        const tree = treesGroup
+          .create(player.x, treeY, `tree${treeIndex}`)
+          .setOrigin(0.5, 1)
+          .setScale(0.1); // Keep the scale at 0.1
 
-    // 8. Function to handle switching to the next level/background
-    function switchToNextLevel() {
-      if (currentLevel < maxLevels) {
-        currentLevel++;
-
-        // Get new level settings
-        const levelSettings = levelConfig[currentLevel];
-
-        // Update the background texture
-        backgroundImage.setTexture(backgrounds[currentLevel]);
-
-        // Set the new ground texture based on the current level
-        const newGroundTexture = groundTextures[currentLevel] || "platform1";
-
-        // Update the ground texture and stretch it
-        ground
-          .setTexture(newGroundTexture)
-          .setDisplaySize(800, groundHeight)
-          .setOrigin(0.5, 1);
-
-        // Refresh the physics body after resizing
-        ground.refreshBody();
-
-        // Adjust ground's physics body for the new level
-        const groundCollisionOffset = 10;
-        ground.body.setSize(
-          ground.width,
-          ground.height - groundCollisionOffset
-        );
-        ground.body.setOffset(0, groundCollisionOffset);
-
-        // Reset player position if necessary
-        player.setX(50);
-        player.setY(ground.y - groundHeight - 24);
-
-        // Remove existing floating platforms, trees, and satellites
-        floatingPlatformsGroup.clear(true, true);
-        treesGroup.clear(true, true);
-        satellitesGroup.clear(true, true);
-
-        // Re-initialize groups
-        treesGroup = this.physics.add.group();
-        satellitesGroup = this.physics.add.group();
-
-        // Add new floating platforms, trees, and satellites based on the new level
-        addLevelObjects.call(this, currentLevel);
-
-        // Re-enable collision between the player and new floating platforms, trees, and satellites
-        this.physics.add.collider(player, floatingPlatformsGroup);
-        this.physics.add.overlap(player, treesGroup, collectTree, null, this);
-        this.physics.add.overlap(
-          player,
-          satellitesGroup,
-          collectSatellite,
-          null,
-          this
-        );
-
-        // Optionally, display level-specific information
-        displayLevelInfo.call(this, currentLevel);
-
-        // Update score label
-        scoreLabel.setText(levelSettings.label);
-
-        // Reset score and maxScore
-        maxScore = levelSettings.maxScore;
-        if (currentLevel === 2) {
-          // For level 2, start score at maxScore
-          score = maxScore;
-        } else {
-          // For other levels, start score at 0
-          score = 0;
-        }
-
-        // Update the progress bar
-        updateProgressBar();
-      } else {
-        // All levels completed
-        setPopup({
-          visible: true,
-          message:
-            "Congratulations! You've explored all regions of Climate Cascade.",
+        // Optional: Make the tree oscillate
+        this.tweens.add({
+          targets: tree,
+          y: tree.y - 10,
+          duration: 1000,
+          yoyo: true,
+          repeat: -1,
+          ease: "Sine.easeInOut",
         });
-        // Pause the game
-        this.physics.pause();
-        player.setTint(0x00ff00);
-        player.anims.play("turn");
+      }
+
+      if (!pKey.isDown) {
+        pKey.pressed = false;
       }
     }
 
@@ -599,16 +437,22 @@ const ClimateCascade = () => {
   }, []);
 
   return (
-    <div className="climate-cascade-container" style={{backgroundColor: 'black'}}>
-      <img src="/Games/Climate Cascade.jpg" alt="Title"  style={{width: 200, height: 'auto'}}/>
+    <div
+      className="deforestation-defender-container"
+      style={{ backgroundColor: "black" }}
+    >
+      <img
+        src="/Games/Deforestation Defender.jpg"
+        alt="Title"
+        style={{ width: 200, height: "auto" }}
+      />
       <div className="game-wrapper">
         <div ref={gameContainerRef} className="game-container"></div>
         <div>{isLoading && <Loading logoSrc="/Games/ecosync.png" />}</div>
 
         {/* Popup for level information */}
-        {/* Popup for level information */}
         {/* {popup.visible && (
-          <div className="popup" style={{marginTop: 50}}>
+          <div className="popup" style={{ marginTop: 50 }}>
             <div className="popup-content">
               <p>{popup.message}</p>
               <button onClick={() => setPopup({ visible: false, message: "" })}>
@@ -620,8 +464,11 @@ const ClimateCascade = () => {
 
         {/* Satellite modal */}
         {satelliteModal.visible && (
-          <div className="modal" style={{position: 'absolute'}}>
-            <div className="modal-content" style={{display: 'flex', flexDirection: 'column'}}>
+          <div className="modal" style={{ position: "absolute" }}>
+            <div
+              className="modal-content"
+              style={{ display: "flex", flexDirection: "column" }}
+            >
               <img src="/Games/satellite-image.gif" alt="Satellite" />
               <button
                 onClick={() => {
@@ -642,4 +489,4 @@ const ClimateCascade = () => {
   );
 };
 
-export default ClimateCascade;
+export default DeforestationDefender;

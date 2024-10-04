@@ -2,10 +2,10 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import Phaser from "phaser";
-import "./ClimateCascade.css";
+import "./AirQualityAdventure.css";
 import Loading from "../Loading/Loading";
 
-const ClimateCascade = () => {
+const AirQualityAdventure = () => {
   const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -29,11 +29,11 @@ const ClimateCascade = () => {
     let currentLevel = 0; // Start from 0 for swamp
     const maxLevels = 2; // 0: Swamp, 1: Desert, 2: Polar
     const backgrounds = [
-      "swampBackground",
-      "desertBackground",
-      "polarBackground",
+      "skyBackground",
+      //"desertBackground",
+      //"polarBackground",
     ];
-    const groundTextures = ["platform1", "platform2", "platform3"]; // Ground textures
+    const groundTextures = ["platform"]; // Ground textures
     let backgroundImage; // Reference to the current background
     let ground; // Reference to the ground
     let floatingPlatformsGroup; // Group for floating platforms
@@ -48,27 +48,27 @@ const ClimateCascade = () => {
     // Level configuration for labels and scoring
     const levelConfig = {
       0: {
-        label: "Biodiversity",
+        label: "Air Quality",
         maxScore: 100,
         scoreIncrement: 10, // per tree collected
       },
-      1: {
-        label: "Soil Water Level",
-        maxScore: 100,
-        scoreIncrement: 10,
-      },
-      2: {
-        label: "Sea Level",
-        maxScore: 100,
-        scoreIncrement: 10, // Collecting trees decreases the score
-      },
+      // 1: {
+      //   label: "Soil Water Level",
+      //   maxScore: 100,
+      //   scoreIncrement: 10,
+      // },
+      // 2: {
+      //   label: "Sea Level",
+      //   maxScore: 100,
+      //   scoreIncrement: 10, // Collecting trees decreases the score
+      // },
     };
 
     // Define floating platform data for each level
     const floatingPlatformData = {
       0: {
         // Swamp Level
-        texture: "floatingPlatform1",
+        texture: "cloud",
         platforms: [
           { x: 200, y: 470, width: 100 },
           { x: 225, y: 345, width: 150 },
@@ -80,41 +80,41 @@ const ClimateCascade = () => {
           { x: 650, y: 370, width: 200 },
         ],
       },
-      1: {
-        // Desert Level
-        texture: "floatingPlatform2",
-        platforms: [
-          { x: 600, y: 470, width: 120 },
-          { x: 300, y: 100, width: 300 },
-          { x: 500, y: 320, width: 300 },
-          { x: 400, y: 420, width: 200 },
-          { x: 225, y: 370, width: 100 },
-          { x: 300, y: 245, width: 150 },
-          { x: 110, y: 195, width: 200 },
-          { x: 600, y: 170, width: 375 },
-        ],
-      },
-      2: {
-        // Polar Level
-        texture: "floatingPlatform3",
-        platforms: [
-          { x: 220, y: 95, width: 320 },
-          { x: 420, y: 170, width: 420 },
-          { x: 245, y: 320, width: 220 },
-          { x: 670, y: 120, width: 170 },
-          { x: 220, y: 470, width: 220 },
-          { x: 620, y: 420, width: 220 },
-          { x: 420, y: 395, width: 170 },
-          { x: 120, y: 245, width: 170 },
-        ],
-      },
+      // 1: {
+      //   // Desert Level
+      //   texture: "floatingPlatform2",
+      //   platforms: [
+      //     { x: 600, y: 470, width: 120 },
+      //     { x: 300, y: 100, width: 300 },
+      //     { x: 500, y: 320, width: 300 },
+      //     { x: 400, y: 420, width: 200 },
+      //     { x: 225, y: 370, width: 100 },
+      //     { x: 300, y: 245, width: 150 },
+      //     { x: 110, y: 195, width: 200 },
+      //     { x: 600, y: 170, width: 375 },
+      //   ],
+      // },
+      // 2: {
+      //   // Polar Level
+      //   texture: "floatingPlatform3",
+      //   platforms: [
+      //     { x: 220, y: 95, width: 320 },
+      //     { x: 420, y: 170, width: 420 },
+      //     { x: 245, y: 320, width: 220 },
+      //     { x: 670, y: 120, width: 170 },
+      //     { x: 220, y: 470, width: 220 },
+      //     { x: 620, y: 420, width: 220 },
+      //     { x: 420, y: 395, width: 170 },
+      //     { x: 120, y: 245, width: 170 },
+      //   ],
+      //},
     };
 
     // Dummy data for educational pop-ups
     const dataInfo = {
-      0: "Welcome to the Swamp! Navigate and understand the impact of planting trees on biodiversity. See if you can catch the satellite image of your current area too!!",
-      1: "Welcome to the Desert! Navigate and understand the impact of planting trees on soil water level. See if you can catch the satellite image of your current area too!!",
-      2: "Welcome to the Polar Region! Navigate and understand the impact of planting trees on sea level. See if you can catch the satellite image of your current area too!!",
+      0: "Welcome to the Air Quality Adventure! Explore the air quality interactively",
+      //1: "Welcome to the Desert! Navigate and understand the impact of planting trees on soil water level. See if you can catch the satellite image of your current area too!!",
+      //2: "Welcome to the Polar Region! Navigate and understand the impact of planting trees on sea level. See if you can catch the satellite image of your current area too!!",
     };
 
     // 2. Phaser Game Configuration
@@ -142,41 +142,41 @@ const ClimateCascade = () => {
 
     // 3. Preload assets
     function preload() {
-      this.load.image("swampBackground", "/Games/ClimateCascade/assets/swamp.jpg");
-      this.load.image("desertBackground", "/Games/ClimateCascade/assets/desert.jpg");
-      this.load.image("polarBackground", "/Games/ClimateCascade/assets/polar.jpg");
+      this.load.image("skyBackground", "/Games/AirQualityAdventure/assets/sky.jpg");
+      // this.load.image("desertBackground", "/Games/ClimateCascade/assets/desert.jpg");
+      // this.load.image("polarBackground", "/Games/ClimateCascade/assets/polar.jpg");
 
       // Load all ground textures
-      this.load.image("platform1", "/Games/ClimateCascade/assets/platform/1.png");
-      this.load.image("platform2", "/Games/ClimateCascade/assets/platform/6.png"); // Ground texture for level 2
-      this.load.image("platform3", "/Games/ClimateCascade/assets/platform/5.png"); // Ground texture for level 3
+      this.load.image("platform", "/Games/AirQualityAdventure/assets/ground.png");
+      // this.load.image("platform2", "/Games/ClimateCascade/assets/platform/6.png"); // Ground texture for level 2
+      // this.load.image("platform3", "/Games/ClimateCascade/assets/platform/5.png"); // Ground texture for level 3
 
       // Load the floating platform images for different levels
       this.load.image(
-        "floatingPlatform1",
-        "/Games/ClimateCascade/assets/platform/2.png"
+        "cloud",
+        "/Games/AirQualityAdventure/assets/platform.png"
       ); // Level 0 floating platform
-      this.load.image(
-        "floatingPlatform2",
-        "/Games/ClimateCascade/assets/platform/6.png"
-      ); // Level 1 floating platform
-      this.load.image(
-        "floatingPlatform3",
-        "/Games/ClimateCascade/assets/platform/5.png"
-      ); // Level 2 floating platform
+      // this.load.image(
+      //   "floatingPlatform2",
+      //   "/Games/ClimateCascade/assets/platform/6.png"
+      // ); // Level 1 floating platform
+      // this.load.image(
+      //   "floatingPlatform3",
+      //   "/Games/ClimateCascade/assets/platform/5.png"
+      // ); // Level 2 floating platform
 
-      this.load.spritesheet("dude", "/Games/ClimateCascade/assets/dude.png", {
+      this.load.spritesheet("dude", "/Games/AirQualityAdventure/assets/dude.png", {
         frameWidth: 32,
         frameHeight: 48,
       });
 
       // Load tree images
-      for (let i = 1; i <= 9; i++) {
-        this.load.image(`tree${i}`, `/Games/ClimateCascade/assets/trees/${i}.png`);
+      for (let i = 1; i <= 6; i++) {
+        this.load.image(`molecules${i}`, `/Games/AirQualityAdventure/assets/molecules/molecules${i}.png`);
       }
 
       // Load satellite image
-      this.load.image("satellite", "/Games/ClimateCascade/assets/satellite.png");
+      //this.load.image("satellite", "/Games/ClimateCascade/assets/satellite.png");
     }
 
     // 4. Create game objects
@@ -187,7 +187,7 @@ const ClimateCascade = () => {
       // Add the initial background
       backgroundImage = this.add
         .image(400, 300, backgrounds[currentLevel])
-        .setScrollFactor(0, 0);
+        .setDisplaySize(800, 600);
 
       // Get level configuration
       const levelSettings = levelConfig[currentLevel];
@@ -215,7 +215,7 @@ const ClimateCascade = () => {
       const groundY = 600; // Y-position for the ground
 
       // Set ground texture based on the current level
-      const groundTexture = groundTextures[currentLevel] || "platform1"; // Fallback to 'platform1'
+      const groundTexture = groundTextures[currentLevel] || "ground"; // Fallback to 'platform1'
 
       // Add the ground as a static physics object using staticSprite
       ground = this.physics.add
@@ -341,7 +341,7 @@ const ClimateCascade = () => {
 
             // Create tree sprite
             const tree = treesGroup
-              .create(treeX, platform.y - 20, `tree${treeIndex}`)
+              .create(treeX, platform.y - 20, `molecules${treeIndex}`)
               .setOrigin(0.5, 1)
               .setScale(0.1); // Keep the scale at 0.1
 
@@ -363,44 +363,44 @@ const ClimateCascade = () => {
             });
           }
 
-          // Add satellite to the selected platform
-          if (index === satellitePlatformIndex) {
-            // Calculate the left and right edges of the platform
-            const platformLeftX = platform.x - platform.width / 2 + 10;
-            const platformRightX = platform.x + platform.width / 2 - 10;
+          // // Add satellite to the selected platform
+          // if (index === satellitePlatformIndex) {
+          //   // Calculate the left and right edges of the platform
+          //   const platformLeftX = platform.x - platform.width / 2 + 10;
+          //   const platformRightX = platform.x + platform.width / 2 - 10;
 
-            // Randomly position the satellite within the platform bounds
-            const satelliteX = Phaser.Math.Between(
-              platformLeftX,
-              platformRightX
-            );
+          //   // Randomly position the satellite within the platform bounds
+          //   const satelliteX = Phaser.Math.Between(
+          //     platformLeftX,
+          //     platformRightX
+          //   );
 
-            // Create satellite sprite
-            const satellite = satellitesGroup
-              .create(satelliteX, platform.y - 20, "satellite")
-              .setOrigin(0.5, 1)
-              .setScale(0.05); // Smaller satellite
+          //   // Create satellite sprite
+          //   const satellite = satellitesGroup
+          //     .create(satelliteX, platform.y - 20, "satellite")
+          //     .setOrigin(0.5, 1)
+          //     .setScale(0.05); // Smaller satellite
 
-            // Adjust the physics body size
-            satellite.body.setSize(
-              satellite.displayWidth,
-              satellite.displayHeight
-            );
+          //   // Adjust the physics body size
+          //   satellite.body.setSize(
+          //     satellite.displayWidth,
+          //     satellite.displayHeight
+          //   );
 
-            // Set satellite to be immovable and not affected by gravity
-            satellite.body.setAllowGravity(false);
-            satellite.body.setImmovable(true);
+          //   // Set satellite to be immovable and not affected by gravity
+          //   satellite.body.setAllowGravity(false);
+          //   satellite.body.setImmovable(true);
 
-            // Make the satellite oscillate
-            this.tweens.add({
-              targets: satellite,
-              y: satellite.y - 10,
-              duration: 1000,
-              yoyo: true,
-              repeat: -1,
-              ease: "Sine.easeInOut",
-            });
-          }
+          //   // Make the satellite oscillate
+          //   this.tweens.add({
+          //     targets: satellite,
+          //     y: satellite.y - 10,
+          //     duration: 1000,
+          //     yoyo: true,
+          //     repeat: -1,
+          //     ease: "Sine.easeInOut",
+          //   });
+          //}
         });
       }
     }
@@ -575,7 +575,7 @@ const ClimateCascade = () => {
         setPopup({
           visible: true,
           message:
-            "Congratulations! You've explored all regions of Climate Cascade.",
+            "Congratulations! You've explored all regions of Air Quality Adventure",
         });
         // Pause the game
         this.physics.pause();
@@ -599,8 +599,12 @@ const ClimateCascade = () => {
   }, []);
 
   return (
-    <div className="climate-cascade-container" style={{backgroundColor: 'black'}}>
-      <img src="/Games/Climate Cascade.jpg" alt="Title"  style={{width: 200, height: 'auto'}}/>
+    <div className="air-quality-adventure-container" style={{ backgroundColor: "black" }}>
+      <img
+        src="/Games/Air Quality Adventure.png"
+        alt="Title"
+        style={{ width: 200, height: "auto" }}
+      />
       <div className="game-wrapper">
         <div ref={gameContainerRef} className="game-container"></div>
         <div>{isLoading && <Loading logoSrc="/Games/ecosync.png" />}</div>
@@ -621,8 +625,8 @@ const ClimateCascade = () => {
         {/* Satellite modal */}
         {satelliteModal.visible && (
           <div className="modal" style={{position: 'absolute'}}>
-            <div className="modal-content" style={{display: 'flex', flexDirection: 'column'}}>
-              <img src="/Games/satellite-image.gif" alt="Satellite" />
+            <div className="modal-content">
+              <img src="/Games//ClimateCascade/assets/satellite.png" alt="Satellite" />
               <button
                 onClick={() => {
                   setSatelliteModal({ visible: false });
@@ -642,4 +646,4 @@ const ClimateCascade = () => {
   );
 };
 
-export default ClimateCascade;
+export default AirQualityAdventure;

@@ -1,39 +1,85 @@
-/* src/components/DeforestationDefender/DeforestationDefender.css */
+/* DeforestationDefender.css */
 
 .deforestation-defender-container {
-    position: relative;
-    width: 800px;
-    margin: 0 auto;
-  }
-  
-  .game-container {
-    width: 800px;
-    height: 600px;
-    border: 2px solid #000;
-    margin-top: 20px;
-  }
-  
-  .popup {
-    position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, -20%);
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border: 2px solid #000;
-    border-radius: 10px;
-    z-index: 10;
-    max-width: 400px;
-    text-align: center;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  }
-  
-  .popup-content p {
-    margin-bottom: 15px;
-  }
-  
-  .popup-content button {
-    padding: 5px 15px;
-    cursor: pointer;
-  }
-  
+  position: relative;
+  width: 800px;
+  margin: 0 auto;
+  border: 2px solid red;
+}
+
+.game-wrapper {
+  position: relative;
+  width: 800px;
+  height: 600px;
+}
+
+.game-container {
+  width: 100%;
+  height: 100%;
+}
+
+.modal{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 10;
+}
+
+.popup{
+  position: absolute;
+  margin-top: 40px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center;     /* Centers vertically */
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 10;
+}
+
+.modal-content,
+.popup-content {
+  background-color: white;
+  padding: 15px;       /* Reduced padding to decrease overall size */
+  border-radius: 10px;
+  text-align: center;
+  width: 70%;          /* Set width to 50% of the parent container */
+  max-width: 400px;    /* Maximum width of the modal content */
+  max-height: 80%;     /* Maximum height of the modal content */
+  overflow-y: auto;    /* Add scroll if content exceeds max-height */
+}
+
+.modal-content img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Button styles */
+.modal-content button,
+.popup-content button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: #9dc799; /* Default background color */
+  color: #000;               /* Default text color */
+  border: none;
+  border-radius: 30px;        /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+  margin-top: 15px;          /* Space above the button */
+}
+
+/* Hover effect */
+.modal-content button:hover,
+.popup-content button:hover {
+  background-color: #334B71; /* Darker background color on hover */
+  color: #fff;            /* Lighter text color on hover */
+}
