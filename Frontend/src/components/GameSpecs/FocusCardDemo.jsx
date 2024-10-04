@@ -1,4 +1,4 @@
-import { FocusCards } from "D:/ECOSYNC/Frontend/src/components/ui/focus-cards.jsx"; // Adjust the path to match your folder structure
+import { FocusCards } from "F:/ECOSYNC/Ecosync/Frontend/src/components/ui/focus-cards.jsx"; // Adjust the path to match your folder structure
 
 export default function FocusCardsDemo() {
   const cards = [

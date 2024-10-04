@@ -603,7 +603,7 @@ const ClimateCascade = () => {
       <h2>Climate Cascade</h2>
       <div className="game-wrapper">
         <div ref={gameContainerRef} className="game-container"></div>
-        <div>{isLoading && <Loading logoSrc="/Games/ecosync.png" />}</div>
+        <div>{isLoading && <Loading logoSrc="/Games/ECOSYNC/Ecosync.png" />}</div>
 
         {/* Popup for level information */}
         {/* Popup for level information */}

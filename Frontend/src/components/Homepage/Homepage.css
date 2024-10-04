@@ -5,7 +5,7 @@
 }
 
 .bg {
-   background-image: url('D:/ECOSYNC/Frontend/src/assets/back1.jpg'); /* Replace with your actual image path */
+   background-image: url('F:/ECOSYNC/Ecosync/Frontend/src/assets/back1.jpg'); /* Replace with your actual image path */
    background-size: cover;   /* Ensures the image covers the entire container */
    background-position: center; /* Centers the image */
    background-repeat: no-repeat; /* Prevents the image from repeating */

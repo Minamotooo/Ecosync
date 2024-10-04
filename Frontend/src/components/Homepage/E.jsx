@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 import "./E.css";
-import earth from "D:/ECOSYNC/Frontend/src/assets/usd.png";
+import earth from "F:/ECOSYNC/Ecosync/Frontend/src/assets/usd.png";
 
 export default function E() {
     const navigate = useNavigate(); // Initialize navigate
 
     const handleButtonClick = () => {
-        navigate("/cesium"); // Replace "/new-page" with the desired path
+        navigate("/map"); // Replace "/new-page" with the desired path
     };
 
     return (

@@ -10,13 +10,17 @@ import { GeoJsonDataSource } from 'cesium';
 import fireData from './fires.json';
 
 
-const ViewerContent = ({ showCircles, animateDomes, showOzoneLayer, showRivers, showDroughts, showForests, showFires, showTemp }) => {
+
+
+
+const ViewerContent = ({ showCircles, animateDomes, showOzoneLayer, showRivers, showDroughts, showForests, showFires, showTemp, drawMode, polygonPoints, setPolygonPoints, isPolygonFinalized, setIsPolygonFinalized }) => {
     const { viewer } = useCesium();
     const [progress, setProgress] = useState(0);
     const [emissionData, setEmissionData] = useState([]);
     const [riversDataSource, setRiversDataSource] = useState(null);
     const [droughtDataSource, setDroughtDataSource] = useState(null);
     const [riverEntities, setRiverEntities] = useState([]);
+    const polygonHeight = 50000;
     
 
 
@@ -358,6 +362,33 @@ const ViewerContent = ({ showCircles, animateDomes, showOzoneLayer, showRivers, 
         return new Cesium.Cartesian3(200000, 200000, 200000);
       }
     };
+
+
+    React.useEffect(() => {
+      if (!viewer || !drawMode || isPolygonFinalized) return;
+  
+      const handler = new Cesium.ScreenSpaceEventHandler(viewer.scene.canvas);
+  
+      // Left-click to add points
+      handler.setInputAction((clickEvent) => {
+        const cartesian = viewer.camera.pickEllipsoid(clickEvent.position, Cesium.Ellipsoid.WGS84);
+        if (cartesian && !isPolygonFinalized) {
+          const cartographic = Cesium.Cartographic.fromCartesian(cartesian);
+          const latitude = Cesium.Math.toDegrees(cartographic.latitude);
+          const longitude = Cesium.Math.toDegrees(cartographic.longitude);
+  
+          setPolygonPoints([...polygonPoints, { latitude, longitude }]);
+        }
+      }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
+  
+      // Right-click to finalize polygon
+      handler.setInputAction(() => {
+        setIsPolygonFinalized(true);
+      }, Cesium.ScreenSpaceEventType.RIGHT_CLICK);
+  
+      return () => handler.destroy();
+    }, [viewer, drawMode, isPolygonFinalized, polygonPoints, setPolygonPoints, setIsPolygonFinalized]);
+  
     
   
     return (
@@ -376,6 +407,18 @@ const ViewerContent = ({ showCircles, animateDomes, showOzoneLayer, showRivers, 
     extrudedHeight: 50000.0,  // Optional: Extruded height if you want a vertical extrusion
         }}
       /> */}
+      {drawMode && polygonPoints.length > 1 && (
+        <Entity
+          polygon={{
+            hierarchy: Cesium.Cartesian3.fromDegreesArray(
+              polygonPoints.flatMap(point => [point.longitude, point.latitude])
+            ),
+            material: Cesium.Color.ORANGE.withAlpha(0.5),
+            height: polygonHeight, // Sets the height of the polygon
+ // Extrudes the polygon to appear "floating"
+          }}
+        />
+      )}
         {showCircles && emissionData.map((location, index) => (
             
           <Entity

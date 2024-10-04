@@ -4,7 +4,8 @@ import * as Cesium from "cesium";
 import "cesium/Build/Cesium/Widgets/widgets.css";
 import ViewerContent from './ViewerContent';
 import Controls from './Controls';
-
+import Modal from 'react-modal';
+import DualBoxChart from './DualBoxChart';
 
 
 
@@ -18,6 +19,28 @@ function CesiumMap() {
   const [showForests, setShowForests] = useState(false);
   const [showFires, setShowFires] = useState(false);
   const [showTemp, setShowTemp] = useState(false);
+  const [drawMode, setDrawMode] = useState(false);
+  const [polygonPoints, setPolygonPoints] = useState([]);
+  const [isPolygonFinalized, setIsPolygonFinalized] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+
+  const toggleDrawMode = () => {
+    setDrawMode(!drawMode);
+    if (!drawMode) {
+      setPolygonPoints([]); // Reset polygon when enabling draw mode
+    }
+    setIsPolygonFinalized(false);
+    setShowModal(false);
+  };
+
+  const finalizePolygon = () => {
+    setIsPolygonFinalized(true);
+    setShowModal(true); // Show modal when the polygon is finalized
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   React.useEffect(() => {
     Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyOTBlMzQ1Yi1iODhkLTQ0ZWQtYWI1NC01MWMwYzZmOTMzODAiLCJpZCI6MjM5NjczLCJpYXQiOjE3MjU2NTQ5MzR9.q4O8y_HPueoTeAorxcq0Yl2g-tO8hrEWyIV-p_jVroQ';
@@ -26,7 +49,7 @@ function CesiumMap() {
 
 
   return (
-    <div style={{ width: '100%', height: '100vh' }}>
+    <div style={{ width: '100%', height: '100vh' }} onContextMenu={(e) => e.preventDefault()}>
       <Controls
         showCircles={showCircles}
         animateDomes={animateDomes}
@@ -44,6 +67,8 @@ function CesiumMap() {
         setShowFires={setShowFires}
         showTemp={showTemp} // Pass the temperature state
         setShowTemp={setShowTemp}
+        drawMode={drawMode}
+        toggleDrawMode={toggleDrawMode}
       />
       <Viewer
         full
@@ -56,6 +81,7 @@ function CesiumMap() {
         sceneModePicker={false}      // Disables the scene mode picker
         geocoder={false} 
         fullscreenButton={false}
+        
       >
         <ViewerContent 
         showCircles={showCircles} 
@@ -66,8 +92,38 @@ function CesiumMap() {
         showForests={showForests}
         showFires={showFires}
         showTemp={showTemp}
+        drawMode={drawMode} 
+          polygonPoints={polygonPoints}
+          setPolygonPoints={setPolygonPoints}
+          isPolygonFinalized={isPolygonFinalized}
+          setIsPolygonFinalized={finalizePolygon}
         />
         </Viewer>
+        {/* Modal Component */}
+        <Modal 
+  isOpen={showModal} 
+  onRequestClose={closeModal}
+  shouldCloseOnOverlayClick={true} // Allows closing on overlay click
+  contentLabel="Polygon Finalized Modal"
+  style={{
+    overlay: { backgroundColor: 'rgba(0, 0, 0, 0)' },
+    content: { 
+      padding: '20px', 
+      width: '600px', // Adjust width as needed
+      height: '700px', // Adjust height for a shorter modal
+      top: '50%', 
+      right: '4%', // Shift modal to the right side
+      left: 'auto', // Override default left position
+      bottom: 'auto', 
+      marginRight: '0',
+      transform: 'translate(0, -50%)',
+      textAlign: 'center'
+    }
+  }}
+  
+>
+  <DualBoxChart />
+</Modal>
     </div>
   );
 }

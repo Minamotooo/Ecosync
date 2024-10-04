@@ -1,5 +1,5 @@
 import React from "react";
-import Cascade from "D:/ECOSYNC/Frontend/src/assets/Ocean_Odyssey.jpg";
+import Cascade from "F:/ECOSYNC/Ecosync/Frontend/src/assets/Ocean_Odyssey.jpg";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 
 export function ThreeDCard4() {

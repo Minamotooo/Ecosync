@@ -1,14 +1,14 @@
 import Footer from "../Footer/Footer";
 import "./About.css";
-import logo from 'D:/ECOSYNC/Frontend/src/assets/usd.png';
+import logo from 'F:/ECOSYNC/Ecosync/Frontend/src/assets/usd.png';
 
 export default function About() {
   return (
     <div className="about">
       <div className="about-container">
-        {/* Ecosync logo */}
+        {/* ECOSYNC/Ecosync logo */}
         <div className="logo-section">
-          <img src={logo} className="logo-img" alt="ECOSYNC Logo" />
+          <img src={logo} className="logo-img" alt="ECOSYNC/Ecosync Logo" />
         </div>
 
         {/* About Us section */}

@@ -69,7 +69,7 @@ export default function Menu() {
             </div>
             <div className="menu-banner">
                 <div className="team">BUET ASTRONOVA</div>
-                <div className="project">Ecosync</div>
+                <div className="project">ECOSYNC/Ecosync</div>
             </div>
         </div>
     );

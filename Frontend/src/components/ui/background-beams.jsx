@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { cn } from "D:/ECOSYNC/Frontend/src/utils/cn.js";
+import { cn } from "F:/ECOSYNC/Ecosync/Frontend/src/utils/cn.js";
 
 export const BackgroundBeams = React.memo(({ className }) => {
   const paths = [

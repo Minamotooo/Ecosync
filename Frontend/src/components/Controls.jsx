@@ -1,14 +1,14 @@
 import React from 'react';
-import ozone from "D:/ECOSYNC/Frontend/src/assets/logo/ozone_icon.png";
-import co2 from "D:/ECOSYNC/Frontend/src/assets/logo/co2_icon.png";
-import drought from "D:/ECOSYNC/Frontend/src/assets/logo/drought.png";
-import forest from "D:/ECOSYNC/Frontend/src/assets/logo/forest_icon.png";
-import river from "D:/ECOSYNC/Frontend/src/assets/logo/river.png";
-import wildfire from "D:/ECOSYNC/Frontend/src/assets/logo/wildfire.png";
-import temperature from "D:/ECOSYNC/Frontend/src/assets/logo/thermometer.png";
-import seaLevel from "D:/ECOSYNC/Frontend/src/assets/extra1.png";
-import AirQuality from "D:/ECOSYNC/Frontend/src/assets/extra2.png";
-import Landslides from "D:/ECOSYNC/Frontend/src/assets/extra3.png";
+import ozone from "F:/ECOSYNC/Ecosync/Frontend/src/assets/logo/ozone_icon.png";
+import co2 from "F:/ECOSYNC/Ecosync/Frontend/src/assets/logo/co2_icon.png";
+import drought from "F:/ECOSYNC/Ecosync/Frontend/src/assets/logo/drought.png";
+import forest from "F:/ECOSYNC/Ecosync/Frontend/src/assets/logo/forest_icon.png";
+import river from "F:/ECOSYNC/Ecosync/Frontend/src/assets/logo/river.png";
+import wildfire from "F:/ECOSYNC/Ecosync/Frontend/src/assets/logo/wildfire.png";
+import temperature from "F:/ECOSYNC/Ecosync/Frontend/src/assets/logo/thermometer.png";
+import seaLevel from "F:/ECOSYNC/Ecosync/Frontend/src/assets/extra1.png";
+import AirQuality from "F:/ECOSYNC/Ecosync/Frontend/src/assets/extra2.png";
+import Landslides from "F:/ECOSYNC/Ecosync/Frontend/src/assets/extra3.png";
 
 import "./Controls.css";
 
@@ -16,10 +16,12 @@ import "./Controls.css";
 function Controls({
   showCircles, animateDomes, setShowCircles, setAnimateDomes,
   showOzoneLayer, setShowOzoneLayer, showRivers, setShowRivers, showDroughts, setShowDroughts,
-  showForests, setShowForests, showFires, setShowFires, showTemp, setShowTemp 
+  showForests, setShowForests, showFires, setShowFires, showTemp, setShowTemp,
+  drawMode, toggleDrawMode 
 }) {
 
   return (
+    <div>
     <div className="sidebar">
       {/* Carbon Dioxide */}
       <h1 className='heading'>Earth Systems</h1>
@@ -115,6 +117,12 @@ function Controls({
       </button>
 
 
+    </div>
+    <div style={{ position: 'absolute', top: '880px', left: '50px', zIndex: 1000 }}>
+    <button onClick={toggleDrawMode} className={`sidebar2-btn ${drawMode ? 'active' : ''}`}>
+        {drawMode ? 'End Simulation' : 'Run Simulation'}
+      </button>
+    </div>
     </div>
   );
 }

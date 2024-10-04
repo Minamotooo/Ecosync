@@ -1,7 +1,7 @@
 // New.js
 import React, { useEffect, useRef, useState } from 'react';
 import './New.css';
-import pc from  "D:/ECOSYNC/Frontend/src/assets/game.png";
+import pc from  "F:/ECOSYNC/Ecosync/Frontend/src/assets/game.png";
 
 const New = () => {
     const ref = useRef(null);

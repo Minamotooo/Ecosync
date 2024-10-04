@@ -1,5 +1,5 @@
 import React, { useState, memo } from "react";
-import { cn } from "D:/ECOSYNC/Frontend/src/utils/cn.js"; // Adjust the path to your utils file
+import { cn } from "F:/ECOSYNC/Ecosync/Frontend/src/utils/cn.js"; // Adjust the path to your utils file
 
 export const Card = memo(function Card({ card, index, hovered, setHovered }) {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import Cascade from "D:/ECOSYNC/Frontend/src/assets/Air_Quality_Adventure.png";
+import Cascade from "F:/ECOSYNC/Ecosync/Frontend/src/assets/Air_Quality_Adventure.png";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 
 export function ThreeDCard6() {

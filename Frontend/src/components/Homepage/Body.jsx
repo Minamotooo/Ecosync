@@ -8,7 +8,7 @@ const Body = () => {
         Your browser does not support the video tag.
       </video>
       <div className="hero-content">
-        <h1 className="hero-title">ECOSYNC</h1>
+        <h1 className="hero-title">ECOSYNC/Ecosync</h1>
         <p className="hero-subtitle">The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
         <button className="get-started-btn">Get Started</button>
       </div>

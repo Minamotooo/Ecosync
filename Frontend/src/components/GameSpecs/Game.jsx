@@ -1,7 +1,7 @@
 import { ThreeDCardDemo } from "../Homepage/ThreeDCardDemo";
 import { ThreeDCard2 } from "../Homepage/ThreeDCard2";
 import { ThreeDCard3 } from "../Homepage/ThreeDCard3";
-import Navbar from "D:/ECOSYNC/Frontend/src/components/Homepage/Navbar";
+import Navbar from "F:/ECOSYNC/Ecosync/Frontend/src/components/Homepage/Navbar";
 import "./Game.css";
 import { ThreeDCard4 } from "../Homepage/ThreeDCard4";
 import { ThreeDCard5 } from "../Homepage/ThreeDCard5";

@@ -1,5 +1,5 @@
 // Remove 'use client' if not needed for SSR or other specific cases
-import { cn } from "D:/ECOSYNC/Frontend/src/utils/cn";
+import { cn } from "F:/ECOSYNC/Ecosync/Frontend/src/utils/cn";
 import React, { createContext, useState, useContext, useRef, useEffect } from "react";
 
 const MouseEnterContext = createContext(undefined);
