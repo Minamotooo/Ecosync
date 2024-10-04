@@ -1,17 +1,21 @@
 import "./Navbar.css";
-import mainlogo from "D:/ECOSYNC/Frontend/src/assets/usd.png";
-export default function Map() {
+import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import mainlogo from "D:/ECOSYNC/Frontend/src/assets/usd.png"; // Adjust the path as necessary
+
+export default function Navbar() {
   return (
     <div>
       <header className="navbar--container">
         <div>
-          <img className="logooo" src={mainlogo}/>
+          <Link to="/"> {/* Link to home page */}
+            <img className="logooo" src={mainlogo} alt="Logo" />
+          </Link>
         </div>
         <nav className="nav--Menu">
-          <a className="navItem">Map</a>
-          <a className="navItem">Games</a>
-          <a className="navItem">Help</a>
-          <a className="navItem">About Us</a>
+          <Link to="/cesium" className="navItem">Map</Link>
+          <Link to="/games" className="navItem">Games</Link>
+          <Link to="/help" className="navItem">Help</Link>
+          <Link to="/about" className="navItem">About Us</Link>
         </nav>
       </header>
     </div>

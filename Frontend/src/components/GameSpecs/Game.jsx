@@ -6,7 +6,7 @@ import "./Game.css";
 import { ThreeDCard4 } from "../Homepage/ThreeDCard4";
 import { ThreeDCard5 } from "../Homepage/ThreeDCard5";
 import { ThreeDCard6 } from "../Homepage/ThreeDCard6";
-
+import About from "../Homepage/About";
 export default function Game() {
     return (
         <div className="game">
@@ -32,6 +32,7 @@ export default function Game() {
                     <ThreeDCard6 />
                 </div>
             </div>
+            <About className="game-footer"/>
         </div>
     );
 }

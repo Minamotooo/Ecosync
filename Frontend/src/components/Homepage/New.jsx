@@ -1,7 +1,7 @@
 // New.js
 import React, { useEffect, useRef, useState } from 'react';
 import './New.css';
-import pc from  'D:/ECOSYNC/Frontend/src/assets/pc.png'
+import pc from  "D:/ECOSYNC/Frontend/src/assets/game.png";
 
 const New = () => {
     const ref = useRef(null);
@@ -44,7 +44,7 @@ const New = () => {
             </div>
             <div className={`text-container ${isVisible ? 'fade-in' : ''}`}>
                 <h2>Learn Through Play</h2>
-                <p>Uncover the mysteries of our world by embarking on an adventure through gameplay</p>
+                <p>Learn through fun, interactive games using NASA's data and APIs to simplify understanding Earth's complex systems</p>
             </div>
         </div>
     );

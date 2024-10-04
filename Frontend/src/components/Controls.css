@@ -1,7 +1,7 @@
 /* Sidebar container */
 .sidebar {
     position: absolute;
-    top: 200px;
+    top: 100px;
     left: 20px;
     background-color: rgba(20, 26, 34,.725); /* Dark background */
     padding: 10px 20px;

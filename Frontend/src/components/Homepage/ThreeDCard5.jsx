@@ -20,7 +20,7 @@ export function ThreeDCard5() {
 
           {/* Overlay with description */}
           <div className="absolute inset-0 bg-black bg-opacity-30 opacity-0 group-hover/card:opacity-100 transition-opacity duration-300 flex items-center justify-center rounded-xl">
-          <p className="text-white text-center text-lg" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>Climate Cascade - A Beautiful Flow of Nature</p>
+          <p className="text-white text-center text-lg" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.8)' }}>A puzzle game arranging water flow paths to maintain ecosystem balance amidst droughts, floods, and pollution</p>
           </div>
         </CardItem>
 

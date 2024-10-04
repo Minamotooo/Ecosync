@@ -1,20 +1,79 @@
 .about {
     text-align: center;
     margin-top: 20px;
-}
-
-.about-text {
-    font-size: 12px;
+    background: linear-gradient(135deg, #99c2ff 0%, #0072ff 50%, #005bb5 100%);
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -5px 100px rgba(0, 0, 0, 0.3);
+  }
+  
+  .about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 20px;
+  }
+  
+  /* Logo Section */
+  .logo-section {
+    flex: 1;
+    text-align: right;
+  }
+  
+  .logo-img {
+    width: 2000px; 
+    border-right: white 4px solid;
+    padding-left: 200px;
+    margin-top: 0px;/* Adjust size based on your preference */
+  }
+  
+  /* About Us Section */
+  .center-section {
+    flex: 2;
+    text-align: center;
+  }
+  .center-section h3 {
+    font-size: 25px;
+    color: white;
+    font-weight: normal;
+    margin-bottom: 25px;
+  }
+  
+  .about-text {
+    font-size: 16px;
     letter-spacing: 1.5px;
-    color: #0e86d4; /* A pinkish-red color */
+    color: white;
     text-transform: uppercase;
-    margin-bottom: 5px;
     font-weight: bold;
-}
-
-.about-des {
-    font-size: 24px;
-    font-weight: 700;
-    color: #223344; /* A dark navy blue color */
-    margin: 0;
-}
+    margin-bottom: 10px;
+  }
+  
+  /* BUET ASTRONOVA Section */
+  .astronova-section {
+    flex: 1;
+    text-align: right;
+    border-left: white 4px solid;
+    padding-left: 20px;
+    
+  }
+  
+  .astronova-text {
+    font-size: 40px;
+    max-width: 100px;
+    color: white;
+    font-weight: bold;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: transparent;
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+  }
+  

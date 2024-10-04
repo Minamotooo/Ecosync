@@ -37,7 +37,7 @@ export function ThreeDCardDemo() {
               className="text-white text-center text-lg"
               style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
             >
-              Climate Cascade - A Beautiful Flow of Nature
+              A side-scrolling platformer navigating diverse climate zones to demonstrate the interconnected effects of climate change on Earth's systems
             </p>
           </div>
         </CardItem>

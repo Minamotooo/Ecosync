@@ -6,6 +6,9 @@ import forest from "D:/ECOSYNC/Frontend/src/assets/logo/forest_icon.png";
 import river from "D:/ECOSYNC/Frontend/src/assets/logo/river.png";
 import wildfire from "D:/ECOSYNC/Frontend/src/assets/logo/wildfire.png";
 import temperature from "D:/ECOSYNC/Frontend/src/assets/logo/thermometer.png";
+import seaLevel from "D:/ECOSYNC/Frontend/src/assets/extra1.png";
+import AirQuality from "D:/ECOSYNC/Frontend/src/assets/extra2.png";
+import Landslides from "D:/ECOSYNC/Frontend/src/assets/extra3.png";
 
 import "./Controls.css";
 
@@ -90,6 +93,28 @@ function Controls({
         <img src={temperature} alt="Temperature Icon" className="icon" />
         Temperature
       </button>
+      {/* Dummy */}
+      <button
+        className={`sidebar-btn `}
+      >
+        <img src={seaLevel} alt="Temperature Icon" className="icon" />
+        Sea Level
+      </button>
+      <button
+        className={`sidebar-btn `}
+      >
+        <img src={AirQuality} alt="Temperature Icon" className="icon" />
+        Air Quality
+      </button>
+
+      <button
+        className={`sidebar-btn `}
+      >
+        <img src={Landslides} alt="Temperature Icon" className="icon" />
+        Land Slides
+      </button>
+
+
     </div>
   );
 }
