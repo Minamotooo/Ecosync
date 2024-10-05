@@ -212,14 +212,12 @@ A runner game collecting clean air tokens while avoiding pollution, highlighting
 
 ### **Models (In the Notebooks)**
 
-| Name                                            | Description                                                                                                  |
-|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| [LSTM: CO₂ and Temperature Analysis](https://example.com/lstm-co2-temp)        | Long Short-Term Memory model for analyzing and forecasting CO₂ levels and temperature anomalies.           |
-| [LSTM: Temperature and Sea Level](https://example.com/lstm-temp-sea-level)  | LSTM model for predicting temperature changes and their impact on sea level rise.                           |
-| [InterConnected Systems](https://example.com/interconnected-systems)         | Correlation analysis model examining the relationships between drought, air quality, and wildfire occurrences. |
-| [Correlation Analysis: Drought, Air Quality, Fire](https://example.com/correlation-analysis) | Analyzes the interconnections between drought conditions, air quality deterioration, and wildfire incidents. |
-| [Data Analysis](https://example.com/data-analysis)                           | Comprehensive data analysis framework for processing and interpreting NASA datasets.                         |
-| [Global Temp and Landslide Analysis](https://example.com/global-temp-landslide) | Global data analysis model studying the correlation between world temperature variations and landslide incidents. |
+| Name                                                                                                              | Description                                                                                                      |
+|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
+| [LSTM: CO₂ and Temperature Analysis](https://github.com/Minamotooo/Ecosync/tree/main/Backend/LSTM)                | Long Short-Term Memory model for analyzing and forecasting CO₂ levels and temperature anomalies.                 |
+| [LSTM: Temperature and Sea Level](https://github.com/Minamotooo/Ecosync/tree/main/Backend/LSTM)                  | LSTM model for predicting temperature changes and their impact on sea level rise.                                 |
+| [InterConnected Systems: Drought, Air Quality, Fire](https://github.com/Minamotooo/Ecosync/tree/main/Backend/interconnected%20systems) | Correlation analysis model examining the relationships between drought, air quality, and wildfire occurrences.    |
+| [InterConnected Systems: Global Temp and Landslide](https://github.com/Minamotooo/Ecosync/tree/main/Backend/interconnected%20systems) | Data analysis model studying the correlation between world temperature variations and landslide incidents.        |
 
 
 ### Technologies Used
