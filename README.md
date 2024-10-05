@@ -47,7 +47,7 @@ Provide step-by-step instructions on how to install your project.
     ```
 4. **Start the application:**
     ```bash
-    npm start
+    npm run dev
     ```
 ## Client Side 
 
