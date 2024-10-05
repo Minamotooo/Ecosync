@@ -39,7 +39,7 @@ Provide step-by-step instructions on how to install your project.
     ```
 2. **Navigate to the project directory:**
     ```bash
-    cd frontend
+    cd Frontend
     ```
 3. **Install dependencies:**
     ```bash
