@@ -212,12 +212,12 @@ A runner game collecting clean air tokens while avoiding pollution, highlighting
 
 ### **Models (In the Notebooks)**
 
-| Name                                                                                                              | Description                                                                                                      |
-|-------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------|
-| [LSTM: CO₂ and Temperature Analysis](https://github.com/Minamotooo/Ecosync/tree/main/Backend/LSTM)                | Long Short-Term Memory model for analyzing and forecasting CO₂ levels and temperature anomalies.                 |
-| [LSTM: Temperature and Sea Level](https://github.com/Minamotooo/Ecosync/tree/main/Backend/LSTM)                  | LSTM model for predicting temperature changes and their impact on sea level rise.                                 |
-| [InterConnected Systems: Drought, Air Quality, Fire](https://github.com/Minamotooo/Ecosync/tree/main/Backend/interconnected%20systems) | Correlation analysis model examining the relationships between drought, air quality, and wildfire occurrences.    |
-| [InterConnected Systems: Global Temp and Landslide](https://github.com/Minamotooo/Ecosync/tree/main/Backend/interconnected%20systems) | Data analysis model studying the correlation between world temperature variations and landslide incidents.        |
+| Name                                           | Description                                                                                                  |
+|------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
+| [LSTM](https://github.com/Minamotooo/Ecosync/tree/main/Backend/LSTM)                             | Long Short-Term Memory model for analyzing and forecasting CO₂ levels and temperature anomalies.            |
+| [Data Analysis](https://github.com/Minamotooo/Ecosync/tree/main/Backend/data%20analysis)        | Comprehensive data analysis framework for processing and interpreting various NASA datasets.                |
+| [InterConnected Systems](https://github.com/Minamotooo/Ecosync/tree/main/Backend/interconnected%20systems) | Correlation analysis model examining the relationships between drought, air quality, and wildfire occurrences. |
+| [Landslide](https://github.com/Minamotooo/Ecosync/tree/main/Backend/landslide)                   | Data analysis model studying the correlation between global temperature variations and landslide incidents.    |
 
 
 ### Technologies Used
