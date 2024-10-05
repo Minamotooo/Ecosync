@@ -246,3 +246,4 @@ A runner game collecting clean air tokens while avoiding pollution, highlighting
 | [![GitHub rwd51](https://img.shields.io/badge/GitHub-rwd51-black?logo=github&logoColor=white)](https://github.com/rwd51)                   | Backend, Data Analysis, and AI/ML/DL specialist|
 | [![GitHub SonOfTheSea21](https://img.shields.io/badge/GitHub-SonOfTheSea21-black?logo=github&logoColor=white)](https://github.com/SonOfTheSea21) | Frontend developer and UI/UX designer |
 | [![GitHub Minamotooo](https://img.shields.io/badge/GitHub-Minamotooo-black?logo=github&logoColor=white)](https://github.com/Minamotooo)         | Frontend developer and UI/UX designer   |
+| [![GitHub Nafeeszx](https://img.shields.io/badge/GitHub-Nafeeszx-black?logo=github&logoColor=white)](https://github.com/Nafeeszx)         | Backend, Data Analysis, and AI/ML/DL    |
